@@ -8,8 +8,8 @@ import {  addUser,
 const router=Router();
 
 router.get('/addUser',addUser);
-router.get('/delUser',deleteUser);
-router.get('/updateUser',updateUser);
+router.delete('/delUser/:id',deleteUser);
+router.update('/updateUser/:id',updateUser);
 router.get('/getAllusers',getAllusers);
 router.get('/userStartA',getUsersStartingWithA);
 router.get('/getUsersWithAge2030',getUsersWithAge2030);
