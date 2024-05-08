@@ -1,4 +1,5 @@
-import {sequelize} from '../connection'
+import {sequelize} from '../connection.js';
+import { DataTypes } from 'sequelize';
 export const user =sequelize.define('user',{
    id:{
     type: DataTypes.INTEGER(30),
@@ -6,17 +7,17 @@ export const user =sequelize.define('user',{
     autoIncrement: true
    },
    name:{
-    type: DataTypes.STRING(40),
+    type: DataTypes.CHAR(40),
     unique: true
    },
    email:
    {
-    type: DataTypes.STRING(40),
+    type: DataTypes.CHAR(40),
     unique: true
    },
    password:
    {
-    type: DataTypes.STRING(40),
+    type: DataTypes.CHAR(40),
     unique: true
    },
    age:

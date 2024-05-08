@@ -1,20 +1,20 @@
-import { user } from '../models/userModel';
-
+import { user } from '../models/userModel.js';
+import { Op } from 'sequelize';
 // const { where } = require('sequelize');
 //..............................add user
-const addUser = 
+export const addUser = 
  async (req, res) => {
   try {
     const { name, email, password, age } = req.body;
-    const user = await user.create({ name, email, password, age });
-    res.status(201).json(user);
+    const User = await user.create({ name, email, password, age });
+    res.status(201).json(User);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 //..............................update user
 
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
     try {
      
       const { id } = req.params;
@@ -23,7 +23,7 @@ const updateUser = async (req, res) => {
     
       const updatedUser = await user.update({ name, email, password, age }, { where: { id } });
       
-      res.status(200).json(updatedUser);
+      res.json(updatedUser);
     } catch (error) {
       
       res.status(500).json({ error: error.message });
@@ -31,17 +31,17 @@ const updateUser = async (req, res) => {
   };
 
 
-  const getAllusers = async (req,res)=>
+  export const getAllusers = async (req,res)=>
   {
        try {
         const getAllUsers=await user.findAll();
-        res.status(200).json(getAllUsers);
+        res.json(getAllUsers);
     
        }catch(error){
           res.status(500).json({error:error.message })
        }
   }
-  const deleteUser = async (req,res)=>
+  export const deleteUser = async (req,res)=>
   {
        try {
         const id=req.params;
@@ -52,7 +52,7 @@ const updateUser = async (req, res) => {
           res.status(500).json({error:error.message })
        }
   }
-  const getUsersStartingWithA = async (req, res) => {
+  export const getUsersStartingWithA = async (req, res) => {
     try {
       // Find all users whose name starts with 'a'
       const users = await User.findAll({ where: { name: { [Op.like]: 'a%' } } });
@@ -64,10 +64,10 @@ const updateUser = async (req, res) => {
     }
   };
   
-  const getUsersWithAge2030 = async (req, res) => {
+  export  const getUsersWithAge2030 = async (req, res) => {
     try {
       // Find all users whose name starts with 'a'
-      const users = await User.findAll({ where: { age: { [Op.between]: [20, 30]} } });
+      const users = await user.findAll({ where: { age: { [Op.between]: [20, 30]} } });
      
       res.status(200).json(users);
     } catch (error) {
@@ -77,11 +77,4 @@ const updateUser = async (req, res) => {
   };
 
 
-module.exports = {
-  addUser,
-  updateUser,
-  getAllusers,
-  deleteUser,
-  getUsersStartingWithA,
-  getUsersWithAge2030,
-};
+

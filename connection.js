@@ -1,5 +1,5 @@
 
-const { Sequelize } = require('sequelize');
+import { Sequelize } from "sequelize";
                               //database name, username, pass,
 export const sequelize = new Sequelize('task5', 'root', '', {
     host: 'localhost',
@@ -11,3 +11,7 @@ export const sequelize = new Sequelize('task5', 'root', '', {
         console.log("connected to database")
     })
   } 
+ 
+
+
+
