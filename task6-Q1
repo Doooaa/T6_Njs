@@ -1,0 +1,72 @@
+// const express = require("express"); //express variable call  and return a function
+// const mysql = require("mysql2");
+// const app = express(); //to init the app for hold the return value from var express
+// app.use(express.json());
+// const connection = mysql.createConnection({
+//   //4 values
+//   host: "localhost",
+//   password: "root",
+//   user: "root",
+//   password: "",
+//   database: "task5",
+// });
+// app.post("/addUser", (req, res) => {
+//   const { id, name, age, email, password } = req.body;
+//   connection.query(
+//     `insert into User (id,name,email,password,age) values (${id},"${name}","${email}","${password}",${age}) `,
+//     (error, result, fields) => {
+//       if (error) {
+//         return res.json({ success: false, error });
+//       }
+//       return res.json({ success: true, result });
+//     }
+//   );
+// });
+// app.delete("/deleteUser/:id", (req, res) => {
+//   const id = req.params.id;
+//   connection.query(
+//     `DELETE FROM User WHERE id=${id}`,
+//     (error, result, fields) => {
+//       if (error) {
+//         return res.json({ success: false, error });
+//       }
+//       return res.json({ success: true, result });
+//     }
+//   );
+// });
+// app.put("/updateUser/:id", (req, res) => {
+//   const id = req.params.id;
+//   const { name, age, password, email } = req.body;
+//   connection.query(
+//     `UPDATE User SET name="${name}", email="${email}",
+//     age=${age}, password="${password}"  WHERE id=${id}
+//     `,
+//     (error, result, fields) => {
+//       if (error) {
+//         return res.json({ success: false, error });
+//       }
+//       return res.json({ success: true, result });
+//     }
+//   );
+// });
+
+// app.get("/getAllUsers", (req, res) => {
+//   connection.query("select * from User", (error, result, fields) => {
+//     if (error) {
+//       return res.json({ success: false, error });
+//     }
+//     return res.json({ success: true, result });
+//   });
+// });
+// app.get("/searchUNameStart-a", (req, res) => {
+//   connection.query("SELECT * FROM User WHERE name LIKE 'a%'", (error, result, fields) => {
+//     if (error) {
+//       return res.json({ success: false, error });
+//     }
+//     return res.json({ success: true, result });
+//   });
+// });
+
+// app.listen(3000, () => {
+//   console.log("server start now");
+// });
